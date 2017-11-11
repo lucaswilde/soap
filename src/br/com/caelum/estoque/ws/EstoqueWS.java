@@ -2,6 +2,7 @@ package br.com.caelum.estoque.ws;
 
 import java.util.List;
 
+import javax.jws.Oneway;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -40,6 +41,7 @@ public class EstoqueWS {
 		// nao vai fazer parte do WSDL
 	}
 
+	
 	@WebMethod(operationName = "CadastrarItem")
 	@WebResult(name = "item")
 	public Item cadastrarItem(@WebParam(name="tokenUsuario", header=true) TokenUsuario token, @WebParam(name = "item") Item item) 
@@ -57,4 +59,26 @@ public class EstoqueWS {
 		this.dao.cadastrar(item);
 		return item;
 	}
+	
+	/*
+	@WebMethod(operationName = "CadastrarItem")
+	@WebResult(name = "item")
+	@Oneway
+	public void cadastrarItem(@WebParam(name="tokenUsuario", header=true) TokenUsuario token, @WebParam(name = "item") Item item) 
+			{
+		
+		System.out.println("Cadastrando " + item + ", token: "+ token);
+		boolean valido = new TokenDao().ehValido(token);
+
+		if(!valido) {
+		  //throw new AutorizacaoException("Autorizacao falhou");
+		}
+		
+		new ItemValidador(item).validate();
+		
+		this.dao.cadastrar(item);
+		//return item;
+	}
+	
+	*/
 }
