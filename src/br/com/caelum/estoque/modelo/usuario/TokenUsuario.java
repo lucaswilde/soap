@@ -2,9 +2,20 @@ package br.com.caelum.estoque.modelo.usuario;
 
 import java.util.Date;
 
-public class TokenUsuario {
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import br.com.caelum.estoque.ws.DateAdapter;
+
+@XmlAccessorType(XmlAccessType.FIELD)
+public class TokenUsuario {
+	@XmlElement(required=true)
 	private String token;
+	
+	@XmlElement(required=true)
+	@XmlJavaTypeAdapter(value=DateAdapter.class)
 	private Date dataValidade;
 	
 	//JAX-B precisa desse construtor
