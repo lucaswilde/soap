@@ -1,13 +1,11 @@
 
-package br.com.caelum.estoque.ws;
-
-import java.util.Date;
+package br.com.caelum.estoque.cliente;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -16,16 +14,16 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="tokenUsuario"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="dataValidade" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
- *         &lt;element name="token" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="tokenUsuario">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="dataValidade" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
+ *         &lt;element name="token" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
@@ -38,8 +36,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 public class TokenUsuario {
 
     @XmlSchemaType(name = "dateTime")
-    @XmlJavaTypeAdapter(value=DateAdapter.class)
-    protected Date dataValidade;
+    protected XMLGregorianCalendar dataValidade;
     protected String token;
 
     /**
@@ -47,10 +44,10 @@ public class TokenUsuario {
      * 
      * @return
      *     possible object is
-     *     {@link Date }
+     *     {@link XMLGregorianCalendar }
      *     
      */
-    public Date getDataValidade() {
+    public XMLGregorianCalendar getDataValidade() {
         return dataValidade;
     }
 
@@ -59,10 +56,10 @@ public class TokenUsuario {
      * 
      * @param value
      *     allowed object is
-     *     {@link Date }
+     *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setDataValidade(Date value) {
+    public void setDataValidade(XMLGregorianCalendar value) {
         this.dataValidade = value;
     }
 

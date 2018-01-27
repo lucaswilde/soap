@@ -1,0 +1,2 @@
+Projeto Java normal (nao roda em servidor de aplicacao)
+http://localhost:8080/estoquews?wsdl

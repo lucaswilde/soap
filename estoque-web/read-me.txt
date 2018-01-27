@@ -1,0 +1,2 @@
+Projeto web que prove serviços soap rodando no Wildfly
+http://localhost:8080/estoque-web/EstoqueWS?wsdl
